@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinApp.Views.AddRendezVous"
+             Title="Rendez-vous"
+             Visual="Material"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                     Padding="10">
+
+            <Entry Text="{Binding rdv.ID}" Margin="0" FontSize="1" IsVisible="false" 
+                   HorizontalOptions="FillAndExpand"/>
+
+            <Label Text="Nom Prénom Commercial :" Margin="2"/>
+            <Entry Text="{Binding rdv.Commercial}" Margin="2,2,2,5" HorizontalOptions="FillAndExpand" />
+            
+            <Label Text="Nom Prénom Client/Prospect:" Margin="2"/>
+            <Entry Text="{Binding rdv.Name}" Margin="2,2,2,5" HorizontalOptions="FillAndExpand" />
+
+            <Label Text="Date" Margin="2"/>
+            <DatePicker Date="{Binding rdv.Date}" Format="dd/MM/yyyy" />
+
+            <Label Text="Heure" Margin="2"/>
+            <TimePicker Time="{Binding rdv.Heure}"/>
+
+            <Label Text="{Binding lblInfo}" Margin="2,2,2,5"/>
+
+            <Grid HorizontalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Text="{Binding btnSaveLabel}" x:Name="btnSave" HorizontalOptions="FillAndExpand"
+                        BackgroundColor="#ff6633" TextColor="#fff"
+                        Margin="2" Grid.Column="0" Grid.Row="0" Command="{Binding btnSaveRendezVous}"/>
+
+                <Button Text="Vider" x:Name="btnClear" HorizontalOptions="FillAndExpand"
+                        BackgroundColor="#bfbfbf" TextColor="#fff"
+                        Margin="2" Grid.Column="1" Grid.Row="0" Command="{Binding btnClearRendezVous}"/>
+            </Grid>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
